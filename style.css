@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.main-header{
+    padding-left: 50px;
+    font-family:  Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 400;   
+}
+
+
+.sidebar{
+    position: fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 240px;
+    background-color:lightblue;
+    padding: 6px 14px;
+}
+
+.sidebar .logo_content .logo{
+    color:#fff;
+    font-size: larger;
+    display: flex;
+    height:50px;
+    width:100%;
+    align-items: center;
+}
+
+.section-1{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-left: 10px;
+}
+
+textarea{
+
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: larger;
+    height: 100vh;
+    width : 1000px; 
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
