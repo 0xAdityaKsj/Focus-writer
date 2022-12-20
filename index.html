@@ -12,7 +12,7 @@
     <title>FOCUS</title>
 </head>
 <body>
-    <h1 class="main-header">HOME</h1>
+    
     <div class="sidebar">
         <div class="logo_content">
             <div class="logo">
@@ -23,9 +23,9 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="#">
+                <a href="#" class="save-btn">
                     <i class='bx bx-save'></i>
-                    <span class="links_name">Save</span>
+                    <span class="links_name">Save to device</span>
                 </a>
             </li>
             <li>
@@ -58,8 +58,35 @@
             </div>
         </div>
     </div>
-    <div class="section-1">
-        <textarea id="text1" name="text1" placeholder="drop your thoughts legend!" ></textarea>
+    <div class="home_content">
+        <div class="main_header">HOME</div>
+        <div class="text_area">
+            <textarea id="text1" name="text1" placeholder="drop your thoughts legend!" ></textarea>
+        </div>
     </div>
+    <script>
+        const saveBtn = document.querySelector('.save-btn')
+        saveBtn.addEventListener("click",function(){
+            const textArea = document.querySelector('#text1');
+            const text = textArea.value;
+
+            const textBlob = new Blob([text], { type: 'text/plain' });
+            saveBtn.download = 'text.txt';
+            if (window.webkitURL != null) {
+                // Chrome allows the link to be clicked
+                // without actually adding it to the DOM.
+                saveBtn.href = window.webkitURL.createObjectURL(textBlob);
+            }
+            else{
+                // Firefox requires the link to be added to the DOM
+                // before it can be clicked.
+                saveBtn.href = window.URL.createObjectURL(textBlob);
+                saveBtn.onclick = destroyClickedElement;
+                saveBtn.style.display = "none";
+                document.body.appendChild(downloadLink);
+            }
+            console.log("its working")
+        })
+    </script>
 </body>
 </html>
